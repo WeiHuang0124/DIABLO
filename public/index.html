@@ -88,7 +88,12 @@
 
   /* ---------- layout ---------- */
   .layout{display:grid; grid-template-columns:190px 1fr 190px; gap:10px; align-items:start;}
-  @media(max-width:760px){ .layout{grid-template-columns:1fr;} }
+  @media(max-width:760px){
+    .layout{grid-template-columns:1fr;}
+    .layout .battle-panel{order:-1;}
+    .layout .hero-panel{order:1;}
+    .layout .equip-panel{order:2;}
+  }
 
   /* hero panel */
   .portrait-wrap{display:flex; justify-content:center; margin-bottom:6px;}
@@ -212,7 +217,7 @@
 
   <div class="layout">
     <!-- HERO PANEL -->
-    <aside class="panel">
+    <aside class="panel hero-panel">
       <div class="portrait-wrap"><canvas id="heroPortrait" width="96" height="96"></canvas></div>
       <input id="nameInput" type="text" maxlength="12" value="流浪劍士" style="width:100%; text-align:center; background:transparent; color:var(--gold-bright); border:none; border-bottom:1px dashed #2a2015; font-family:'VT323',monospace; font-size:20px; padding:2px 0; margin-bottom:2px;">
       <div class="lv-row">LV <span id="heroLv">1</span></div>
@@ -258,7 +263,7 @@
     </section>
 
     <!-- EQUIP PANEL -->
-    <aside class="panel">
+    <aside class="panel equip-panel">
       <h3>裝備欄</h3>
       <div class="paperdoll">
         <div class="slot" data-slot="helm"><canvas class="slot-icon" width="40" height="40"></canvas><div class="sname">未裝備</div></div>
